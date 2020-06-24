@@ -1,5 +1,7 @@
 package com.example.catapi
 
+import com.example.catapi.model.Breeds
+import com.example.catapi.model.Images
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

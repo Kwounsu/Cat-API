@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.catapi.model.Images
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
@@ -29,6 +30,23 @@ class ImagesFragment : Fragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::handleResponse, this::handleError)
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        imageView.setOnClickListener {
+            disposable?.dispose()
+            disposable =
+                apiService.getImage()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(this::handleResponse, this::handleError)
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        disposable?.dispose()
     }
 
     private fun handleError(t: Throwable) {

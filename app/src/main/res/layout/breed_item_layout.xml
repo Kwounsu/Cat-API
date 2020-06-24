@@ -4,28 +4,14 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#fff"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="5dp">
 
     <TextView
         android:id="@+id/tv_breedName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Name"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/tv_breedOrigin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Origin"/>
-    <TextView
-        android:id="@+id/tv_breedDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Description"/>
-    <TextView
-        android:id="@+id/tv_breedTemperament"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Temperament"/>
+        android:textStyle="bold"
+        android:textSize="30sp"/>
 
 </LinearLayout>

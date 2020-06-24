@@ -1,4 +1,4 @@
-package com.example.catapi
+package com.example.catapi.model
 
 data class Images (
     val breeds : List<String>,
