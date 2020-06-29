@@ -26,7 +26,7 @@ class BreedsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_breeds, container, false)
         disposable =
-            apiService.getbreeds()
+            apiService.getBreeds()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::handleResponse, this::handleError)

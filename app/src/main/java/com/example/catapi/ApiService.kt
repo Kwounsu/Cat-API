@@ -11,12 +11,10 @@ import retrofit2.http.GET
 
 interface ApiService {
     @GET("images/search")
-    fun getImage(
-    ): Observable<List<Images>>
+    fun getImage(): Observable<List<Images>>
 
     @GET("breeds")
-    fun getbreeds(
-    ): Observable<List<Breeds>>
+    fun getBreeds(): Observable<List<Breeds>>
 
     companion object {
         val BASE_URL = "https://api.thecatapi.com/v1/"
