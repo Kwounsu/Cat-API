@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.example.catapi.model.Breeds
 import com.example.catapi.model.Images
+import com.example.catapi.model.Weight
 import com.example.catapi.viewmodel.CatViewModel
 import io.reactivex.Maybe
 import io.reactivex.Observable
@@ -15,6 +16,7 @@ import org.junit.runners.JUnit4
 import org.mockito.ArgumentMatchers
 import org.mockito.Mock
 import org.mockito.Mockito
+import org.mockito.Mockito.mock
 import org.mockito.MockitoAnnotations
 
 @RunWith(JUnit4::class)
@@ -34,15 +36,20 @@ class CatViewModelTest {
 
     @Test
     fun getImage_positiveResponse() {
-        Mockito.`when`(this.apiService.getImage()).thenAnswer {
-            return@thenAnswer Maybe.just(ArgumentMatchers.anyList<Images>())
-        }
+        val list = listOf<String>()
+        val images = listOf(Images(list, "coj","https://cdn2.thecatapi.com/images/coj.jpg",427,640))
+        Mockito.`when`(this.apiService.getImage()).thenReturn(Observable.just(images))
+//        Mockito.`when`(this.apiService.getImage()).thenAnswer {
+//            return@thenAnswer Maybe.just(ArgumentMatchers.anyList<Images>())
+//        }
     }
 
     @Test
     fun getBreeds_positiveResponse() {
-        Mockito.`when`(this.apiService.getBreeds()).thenAnswer {
-            return@thenAnswer Maybe.just(ArgumentMatchers.anyList<Breeds>())
-        }
+        val breeds = listOf(Breeds(Weight("1","2"),"1","1","1","1","1","1","1","1","1","1","1",1,1,"1",1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,"1",1))
+        Mockito.`when`(this.apiService.getBreeds()).thenReturn(Observable.just(breeds))
+//        Mockito.`when`(this.apiService.getBreeds()).thenAnswer {
+//            return@thenAnswer Maybe.just(ArgumentMatchers.anyList<Breeds>())
+//        }
     }
 }
